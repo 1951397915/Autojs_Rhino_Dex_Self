@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -31,7 +32,7 @@ public class Main {
      */
     public static void main(String args[])
     {
-        args=new String[]{"-encoding", "UTF-8","E:/Work/GitHub/batchJs2Dex/other/aaa.js"};
+       // args=new String[]{"-encoding", "UTF-8","E:/Work/GitHub/batchJs2Dex/other/aaa.js"};
 
         Console.log(args);
         Main main = new Main();
@@ -307,8 +308,8 @@ public class Main {
             addError("msg.jsfile.not.found", absPath);
             return null;
         }
-
-        //characterEncoding = StandardCharsets.UTF_8.toString();
+        //强制 UTF-8
+        characterEncoding = StandardCharsets.UTF_8.toString();
 
         try {
             return (String)SourceReader.readFileOrUrl(absPath, true, characterEncoding);
